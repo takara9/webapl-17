@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     reg_server   = "harbor.labo.local"
-    repository   = "k8s/webapl-1"
+    repository   = "k8s/webapl-17"
     container    = "${ reg_server }/${ repository }" + ":$BUILD_NUMBER"
     registry_url = "https://${ reg_server }"
     auth_regi    = "harbor-login"

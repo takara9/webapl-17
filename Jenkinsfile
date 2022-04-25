@@ -9,6 +9,10 @@ pipeline {
     auth_k8s     = "k8s4-test"
   }
 
+  tools {
+      maven 'mvn-3.8.5'
+  }
+
   stages {
 
     stage('テスト') {

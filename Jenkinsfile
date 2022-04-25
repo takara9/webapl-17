@@ -10,6 +10,12 @@ pipeline {
   }
 
   stages {
+
+    stage('テスト') {
+      steps {
+        sh 'mvn test'
+      }
+
     stage('コンテナのビルド') {
       steps {
         script {
@@ -37,6 +43,7 @@ pipeline {
   post {
       always {
           sh 'docker rmi $container'
+          sh 'docker system prune -a'	  
       }}
 
 }

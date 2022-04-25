@@ -15,7 +15,8 @@ pipeline {
       steps {
         sh 'mvn test'
       }
-
+    }
+    
     stage('コンテナのビルド') {
       steps {
         script {

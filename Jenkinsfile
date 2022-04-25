@@ -15,12 +15,18 @@ pipeline {
 
   stages {
 
-    stage('テスト') {
+    stage ('ソースコードのテスト') {
       steps {
-        sh 'mvn test'
+        sh 'mvn -Dmaven.test.failure.ignore=true test' 
+      }
+      post {
+        success {
+           junit 'target/surefire-reports/**/*.xml' 
+        }
       }
     }
-    
+
+
     stage('コンテナのビルド') {
       steps {
         script {

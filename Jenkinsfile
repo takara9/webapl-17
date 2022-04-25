@@ -16,48 +16,12 @@ pipeline {
           dockerImage = docker.build container
         }}}
     
-    stage('コンテナの内部テスト') {
-      steps {
-        script {	
-	   docker.image(container).inside {
-             sh 'node --version'
-           }}}}
-
-    stage('コンテナの外部テスト') {
-      steps {
-        script {
-	   echo "HELLO"
-           docker.image(container).withRun('-p 8080:3000 --name testx'){
-	      sh '''
-	      docker ps
-	      curl -i http://localhost:8080/test
-	      '''
-	   }}}}
-
-
     stage('コンテナレジストリへプッシュ') {
       steps {
         script {
           docker.withRegistry(registry_url, auth_regi) {
             dockerImage.push()
           }}}}
-
-
-    stage('コンテナの脆弱性検査とSBOM作成') {
-      steps {
-          script {
-      	      withCredentials([string(credentialsId: "anchore-login", variable: 'ANCHORE_CLI_PASS')]) {
-	         sh '''
-                 export ANCHORE_CLI_URL=http://localhost:8228/v1
-                 export ANCHORE_CLI_USER=admin
-		 anchore-cli image add  $container
-                 anchore-cli image wait $container
-                 anchore-cli image vuln $container all
-                 anchore-cli image content $container os
-                 anchore-cli image content $container npm
-		 '''
-		 }}}}
-
 
     stage('K8sクラスタへのデプロイ') {
       steps {    

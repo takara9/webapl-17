@@ -44,7 +44,7 @@ pipeline {
       steps {    
         withKubeConfig([credentialsId: auth_k8s]) {
           sh '''	
-          sed s/__BUILDNUMBER__/$BUILD_NUMBER/ k8s-yaml/_deployment.yaml > k8s-yaml/deployment.yaml
+          sed s/__TAG__/$BUILD_NUMBER/ k8s-yaml/_deployment.yaml > k8s-yaml/deployment.yaml
           kubectl apply -k k8s-yaml
           kubectl get all
 	  kubectl get svc

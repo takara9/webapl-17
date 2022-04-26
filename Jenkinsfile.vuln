@@ -50,9 +50,9 @@ pipeline {
 		 anchore-cli image add  $container
                  anchore-cli image wait $container
                  anchore-cli image vuln $container all
-		 anchore-cli evaluate check $container --detail
-                 anchore-cli image content $container os
-                 anchore-cli image content $container npm
+		 #anchore-cli evaluate check $container --detail
+                 #anchore-cli image content $container os
+                 #anchore-cli image content $container npm
 		 '''
 		 }}}}
 
@@ -73,7 +73,7 @@ pipeline {
   post {
       always {
           sh 'docker rmi $container'
-          sh 'docker system prune -a'	  
+	  sg 'docker system prune --all --force'
       }}
 
 }

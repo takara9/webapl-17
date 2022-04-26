@@ -73,7 +73,7 @@ pipeline {
   post {
       always {
           sh 'docker rmi $container'
-	  sg 'docker system prune --all --force'
+	  sh 'docker system prune --all --force'
       }}
 
 }

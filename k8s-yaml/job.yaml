@@ -13,7 +13,6 @@ spec:
           - "-c"
           - |
             mysql -u springuser -pThePassword -h mysql \
-            -e "show databases"
-
+            -e "show databases;"
       restartPolicy: Never
   completions: 1

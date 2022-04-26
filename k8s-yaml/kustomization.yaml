@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
 - mysql-sts.yaml
+- job.yaml
 - deployment.yaml
 - service.yaml

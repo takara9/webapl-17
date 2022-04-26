@@ -25,6 +25,17 @@ spec:
         envFrom:
         - secretRef:
             name: db-credentials
+        volumeMounts:
+          - name: config-volume
+            mountPath: /workspace/config
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 10"]
+      volumes:
+        - name: config-volume
+          configMap: application.prop
+          
       imagePullSecrets:
       - name: regcred
         #readinessProbe:

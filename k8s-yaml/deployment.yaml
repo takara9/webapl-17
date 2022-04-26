@@ -24,7 +24,7 @@ spec:
         imagePullPolicy: Always
         envFrom:
         - secretRef:
-          name: db-credentials
+            name: db-credentials
       imagePullSecrets:
       - name: regcred
         #readinessProbe:

@@ -22,9 +22,7 @@ pipeline {
       post {
         success {
            junit 'target/surefire-reports/**/*.xml' 
-        }
-      }
-    }
+        }}}
 
 
     stage('コンテナのビルド') {
@@ -32,7 +30,26 @@ pipeline {
         script {
           dockerImage = docker.build container
         }}}
-    
+
+
+    stage('コンテナの脆弱性検査とSBOM作成') {
+      steps {
+          script {
+      	      withCredentials([string(credentialsId: "anchore-login", variable: 'ANCHORE_CLI_PASS')]) {
+	         sh '''
+                 export ANCHORE_CLI_URL=http://localhost:8228/v1
+                 export ANCHORE_CLI_USER=admin
+		 anchore-cli image add  $container
+                 anchore-cli image wait $container
+                 anchore-cli image vuln $container all
+		 anchore-cli evaluate check $container --detail
+                 anchore-cli image content $container os
+                 anchore-cli image content $container npm
+		 '''
+		 }}}}
+
+
+
     stage('コンテナレジストリへプッシュ') {
       steps {
         script {

@@ -12,6 +12,7 @@ spec:
           - bash
           - "-c"
           - |
+            sleep 10 && \
             mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST \
             -e "show databases;"
         envFrom:

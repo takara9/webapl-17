@@ -32,15 +32,9 @@ spec:                       ## 表2 ステートフルセットの仕様
       containers:           
       - name: mysql
         image: mysql:5.7    ## Docker Hub MySQLリポジトリを指定
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: qwerty
-        - name: MYSQL_DATABASE
-          value: db_example
-        - name: MYSQL_USER
-          value: springuser
-        - name: MYSQL_PASSWORD
-          value: ThePassword
+        envFrom:
+        - secretRef:
+          name: db-credentials
         ports:
         - containerPort: 3306
           name: mysql

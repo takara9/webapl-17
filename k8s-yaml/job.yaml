@@ -12,7 +12,10 @@ spec:
           - bash
           - "-c"
           - |
-            mysql -u springuser -pThePassword -h mysql \
+            mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST \
             -e "show databases;"
+        envFrom:
+        - secretRef:
+          name: db-credentials
       restartPolicy: Never
   completions: 1

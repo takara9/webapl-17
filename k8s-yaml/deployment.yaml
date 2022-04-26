@@ -22,9 +22,9 @@ spec:
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
-        env:
-        - name: MYSQL_HOST
-          value: "mysql"
+        envFrom:
+        - secretRef:
+          name: db-credentials
       imagePullSecrets:
       - name: regcred
         #readinessProbe:

@@ -32,6 +32,14 @@ pipeline {
         }}}
 
 
+    stage('コンテナレジストリへプッシュ') {
+      steps {
+        script {
+          docker.withRegistry(registry_url, auth_regi) {
+            dockerImage.push()
+          }}}}
+
+
     stage('コンテナの脆弱性検査とSBOM作成') {
       steps {
           script {
@@ -50,12 +58,6 @@ pipeline {
 
 
 
-    stage('コンテナレジストリへプッシュ') {
-      steps {
-        script {
-          docker.withRegistry(registry_url, auth_regi) {
-            dockerImage.push()
-          }}}}
 
     stage('K8sクラスタへのデプロイ') {
       steps {    

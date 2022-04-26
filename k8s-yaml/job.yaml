@@ -16,6 +16,6 @@ spec:
             -e "show databases;"
         envFrom:
         - secretRef:
-          name: db-credentials
+            name: db-credentials
       restartPolicy: Never
   completions: 1

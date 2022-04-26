@@ -28,13 +28,10 @@ spec:
         volumeMounts:
           - name: config-volume
             mountPath: /workspace/config
-        lifecycle:
-          preStop:
-            exec:
-              command: ["sh", "-c", "sleep 10"]
       volumes:
         - name: config-volume
-          configMap: application.prop
+          configMap:
+            name: application.prop
           
       imagePullSecrets:
       - name: regcred

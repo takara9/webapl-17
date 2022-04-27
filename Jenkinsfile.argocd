@@ -1,9 +1,9 @@
 pipeline {
   agent any
   environment {
+    repository   = "k8s/webapl-17"  
     reg_server   = "harbor.labo.local"
-    repository   = "k8s/webapl-17"
-    container    = "${ reg_server }/${ repository }" + ":$BUILD_NUMBER"
+    image        = "${ reg_server }/${ repository }" + ":$BUILD_NUMBER"
     registry_url = "https://${ reg_server }"
     auth_regi    = "harbor-login"
     auth_k8s     = "k8s4-test"
@@ -27,8 +27,8 @@ pipeline {
 
     stage ('コンテナビルド') {
       steps {
-        sh "./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$container"
-        sh "docker images $container"
+        sh "./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$image"
+        sh "docker images $image"
       }}
 
 
@@ -37,7 +37,7 @@ pipeline {
         script {
           docker.withRegistry(registry_url, auth_regi) {
             //dockerImage.push()
-	    sh "docker push $container"	
+	    sh "docker push $image"	
           }}}}
 
 
@@ -48,12 +48,12 @@ pipeline {
 	         sh '''
                  export ANCHORE_CLI_URL=http://localhost:8228/v1
                  export ANCHORE_CLI_USER=admin
-		 anchore-cli image add  $container
-                 anchore-cli image wait $container
-                 anchore-cli image vuln $container all
-		 #anchore-cli evaluate check $container --detail
-                 #anchore-cli image content $container os
-                 #anchore-cli image content $container npm
+		 anchore-cli image add  $image
+                 anchore-cli image wait $image
+                 anchore-cli image vuln $image all
+		 #anchore-cli evaluate check $image --detail
+                 #anchore-cli image content $image os
+                 #anchore-cli image content $image npm
 		 '''
 		 }}}}
 
@@ -65,7 +65,7 @@ pipeline {
               sh '''
               export ARGOCD_SERVER="argocd-server.argocd.k8s4.labo.local"
               APP_NAME="webapl-17"
-              IMAGE_DIGEST=$(docker image inspect $container -f '{{join .RepoDigests ","}}')
+              IMAGE_DIGEST=$(docker image inspect $image -f '{{join .RepoDigests ","}}')
               argocd --grpc-web app set  $APP_NAME --insecure --kustomize-image $IMAGE_DIGEST
               argocd --grpc-web app sync $APP_NAME --insecure --force --timeout 600
               argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
@@ -74,7 +74,7 @@ pipeline {
   
   post {
       always {
-          sh 'docker rmi $container'
+          sh 'docker rmi $image'
 	  //sh 'docker system prune --all --force'
       }}
 

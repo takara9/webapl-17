@@ -25,11 +25,10 @@ pipeline {
         }}}
 
 
-    stage('コンテナのビルド') {
+    stage ('コンテナビルド') {
       steps {
-        script {
-          dockerImage = docker.build container
-        }}}
+        sh "./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$container"
+      }}
 
 
     stage('コンテナレジストリへプッシュ') {

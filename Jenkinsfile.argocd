@@ -28,6 +28,7 @@ pipeline {
     stage ('コンテナビルド') {
       steps {
         sh "./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$container"
+        sh "docker images $container"	
       }}
 
 
@@ -35,7 +36,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry(registry_url, auth_regi) {
-            dockerImage.push()
+            //dockerImage.push()
+	    sh "docker push $container"	
           }}}}
 
 

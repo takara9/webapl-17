@@ -40,7 +40,7 @@ spec:                       ## 表2 ステートフルセットの仕様
           name: mysql
         volumeMounts:       ## 特徴③コンテナ上のマウントポイント設定
         - name: mysql-cnf
-          mountPath: /etc/mysql/conf.d
+          mountPath: /etc/mysql/mysql.conf.d
         - name: data
           mountPath: /var/lib/mysql
           subPath: data     ## 初期化時に空ディレクトリが必要なため

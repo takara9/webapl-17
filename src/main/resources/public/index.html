@@ -3,11 +3,21 @@
 <head>
 <title>Hello AngularJS</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="hello.js"></script>
 </head>
 
 <body>
-<h1>Hello AngularJS</h1>
+<h1>CICDサンプルプログラム</h1>
+
+<h3>特徴</h3>
+<ul>>
+<li>フロントエンドはAngularJS</li>
+<li>サーバーサイトはSpring Boot</li>
+<li>>データベースはMySQL</li>
+</ul>
+
+
 <div ng-controller="Hello">
 <p>The ID is {{greeting.id}}</p>
 <p>The content is {{greeting.content}}</p>
@@ -17,3 +27,4 @@
 <a href="list.html">User list</a>
 </body>
 </html>
+

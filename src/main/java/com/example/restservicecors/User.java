@@ -11,51 +11,51 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    
     private String name;
     private String email;
-    private String editor;
+    private String preference;
     
     public User() {
-	this.id     = -1;
-	this.name   = "";
-	this.email  = "";
-	this.editor = "";
+        this.id     = -1;
+        this.name   = "";
+        this.email  = "";
+        this.preference = "";
     }
 
-    public User(Integer id, String name, String email, String editor) {
-	this.id     = id;
-	this.name   = name;
+    public User(Integer id, String name, String email, String preference) {
+        this.id     = id;
+        this.name   = name;
         this.email  = email;
-	this.editor = editor;
+        this.preference = preference;
     }
 
     public Integer getId() {
-	return id;
+        return id;
     }
     public void setId(Integer id) {
-	this.id = id;
+        this.id = id;
     }
     
     public String getName() {
-	return name;
+        return name;
     }
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     public String getEmail() {
-	return email;
+        return email;
     }
     public void setEmail(String email) {
-	this.email = email;
+        this.email = email;
     }
     
-    public String getEditor() {
-	return editor;
+    
+    public String getPreference() {
+        return preference;
     }
-    public void setEditor(String editor) {
-	this.editor = editor;
+    public void setPreference(String preference) {
+        this.editor = preference;
     }
 
 }

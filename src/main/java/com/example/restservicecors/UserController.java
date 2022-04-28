@@ -20,22 +20,6 @@ public class UserController {
     private UserRepository userRepository;
     @CrossOrigin(origins = "http://localhost:8080")
 
-    
-	/*
-  	@PostMapping("/xuser")
-	User user(@RequestBody User user) {
-	    System.out.println("==== post user ==== " + user.getName());
-        return new User();
-	}
-	*/
-
-	/*
-   	@GetMapping("/user")
-	User user2(@RequestParam(required = false) String name) {
-	    System.out.println("==== get user ==== ");
-	    return new User();
-	}
-	*/
 
    	@PostMapping("/user")
 	User addUser(@RequestBody User user) {

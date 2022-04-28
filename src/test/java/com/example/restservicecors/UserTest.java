@@ -25,8 +25,8 @@ public class UserTest {
     }
 
     @Test
-    public void user_editor() {
-        assertThat(user.getEditor(), is("emacs"));
+    public void user_preference() {
+        assertThat(user.getPreference(), is("emacs"));
     }
 
 }

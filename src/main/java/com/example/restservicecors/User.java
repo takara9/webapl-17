@@ -55,7 +55,7 @@ public class User {
         return preference;
     }
     public void setPreference(String preference) {
-        this.editor = preference;
+        this.preference = preference;
     }
 
 }

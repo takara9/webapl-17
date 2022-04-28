@@ -52,8 +52,7 @@ public class User {
     
     
     public String getPreference() {
-        //return preference;
-        return "abc";
+        return preference;
     }
     public void setPreference(String preference) {
         this.preference = preference;

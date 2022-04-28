@@ -39,9 +39,15 @@ spec:                       ## 表2 ステートフルセットの仕様
         - containerPort: 3306
           name: mysql
         volumeMounts:       ## 特徴③コンテナ上のマウントポイント設定
+        - name: mysql-cnf
+          mountPath: /etc/mysql/conf.d
         - name: data
           mountPath: /var/lib/mysql
           subPath: data     ## 初期化時に空ディレクトリが必要なため
+      volumes:
+      - name: mysql-cnf
+        configMap:
+          name: mysql-config
         livenessProbe:      ## MySQL稼働チェック
           exec:
             command: ["mysqladmin","-p$MYSQL_ROOT_PASSWORD","ping"]
@@ -56,3 +62,5 @@ spec:                       ## 表2 ステートフルセットの仕様
       resources:
         requests:
           storage: 2Gi
+
+      

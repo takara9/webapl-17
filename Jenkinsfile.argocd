@@ -27,7 +27,7 @@ pipeline {
 
     stage ('コンテナビルド') {
       steps {
-        sh "./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$image"
+        sh "./mvnw spring-boot:build-image -Dmaven.test.failure.ignore=true -Dspring-boot.build-image.imageName=$image"
         sh "docker images $image"
       }}
 

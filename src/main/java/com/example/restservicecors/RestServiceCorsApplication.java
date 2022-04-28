@@ -13,6 +13,7 @@ public class RestServiceCorsApplication {
 		SpringApplication.run(RestServiceCorsApplication.class, args);
 	}
 
+	/*
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -22,4 +23,5 @@ public class RestServiceCorsApplication {
 			}
 		};
 	}
+	*/
 }

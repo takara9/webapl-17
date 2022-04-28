@@ -44,15 +44,16 @@ spec:                       ## 表2 ステートフルセットの仕様
         - name: data
           mountPath: /var/lib/mysql
           subPath: data     ## 初期化時に空ディレクトリが必要なため
-      volumes:
-      - name: mysql-cnf
-        configMap:
-          name: mysql-config
         livenessProbe:      ## MySQL稼働チェック
           exec:
             command: ["mysqladmin","-p$MYSQL_ROOT_PASSWORD","ping"]
           initialDelaySeconds: 60
           timeoutSeconds: 10
+      volumes:
+      - name: mysql-cnf
+        configMap:
+          name: mysql-config
+          
   volumeClaimTemplates:     ## 特徴④ボリューム要求テンプレート
   - metadata:
       name: data

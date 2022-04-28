@@ -21,6 +21,24 @@ spec:
         image: harbor.labo.local/k8s/webapl-17:__TAG__
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 10"]
+
         imagePullPolicy: Always
         envFrom:
         - secretRef:
@@ -35,16 +53,7 @@ spec:
           
       imagePullSecrets:
       - name: regcred
-        #readinessProbe:
-        #  httpGet:
-        #    path: /actuator/health/readiness
-        #    port: 8080
-        #  initialDelaySeconds: 30
-        #  timeoutSeconds: 5
-        #livenessProbe:
-        #  httpGet:
-        #    path: /actuator/health/liveness
-        #    port: 8080
-        #  initialDelaySeconds: 30
-        #  timeoutSeconds: 10
-        #  failureThreshold: 3
+
+
+          
+          

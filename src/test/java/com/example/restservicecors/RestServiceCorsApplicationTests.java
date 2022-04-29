@@ -23,7 +23,7 @@ public class RestServiceCorsApplicationTests {
 
     @Test
     public void toppage() throws Exception {
-	mockMvc.perform(get("/"))
+	mockMvc.perform(get("/index.html"))
 	    .andExpect(content().string(containsString("CICD")));
     }
     

@@ -16,10 +16,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 
-@WebMvcTest(controllers = GreetingController.class)
+//@WebMvcTest(controllers = GreetingController.class)
 //@SpringBootTest
 public class RestServiceCorsApplicationTests {
-
 
     @Autowired
     private MockMvc mockMvc;
@@ -45,7 +44,7 @@ public class RestServiceCorsApplicationTests {
     @Test
     public void accessing_REST_API_user_list() throws Exception {
 	mockMvc.perform(get("/users"))
-		.andExpect(is4xxClientError());
+		.andExpect(status().is4xxClientError());
     }
 
     @Test

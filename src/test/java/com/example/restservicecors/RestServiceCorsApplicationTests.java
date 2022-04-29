@@ -20,25 +20,34 @@ public class RestServiceCorsApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
-    public void toppage() throws Exception {
+    public void accessing_html_top_page() throws Exception {
 	mockMvc.perform(get("/index.html"))
 	    .andExpect(content().string(containsString("CICD")));
     }
 
     @Test
-    public void list() throws Exception {
+    public void accessing_html_list_view() throws Exception {
 	mockMvc.perform(get("/list.html"))
 	    .andExpect(content().string(containsString("LIST")));
     }
-    
-
+ 
     @Test
-    public void input() throws Exception {
+    public void accessing_html_input_user_info() throws Exception {
 	mockMvc.perform(get("/input.html"))
 	    .andExpect(content().string(containsString("FORM")));
     }
 
-    
+    @Test
+    public void accessing_REST_API_user_list() throws Exception {
+	mockMvc.perform(get("/users"))
+	    .andExpect(content().string(containsString("[")));
+    }
+
+    @Test
+    public void accessing_REST_API_user() throws Exception {
+	mockMvc.perform(get("/user"))
+	    .andExpect(content().string(containsString("[")));
+    }
+   
 }

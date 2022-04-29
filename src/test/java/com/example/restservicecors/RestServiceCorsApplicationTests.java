@@ -21,29 +21,10 @@ public class RestServiceCorsApplicationTests {
     private MockMvc mockMvc;
 
 
-    //@Test
-    //	public void contextLoads() {
-    //	}
-
-    /*
     @Test
-    public void homePage() throws Exception {
-	// N.B. jsoup can be useful for asserting HTML content
-	mockMvc.perform(get("/index.html"))
-	    .andExpect(content().string(containsString("Get your greeting")));
-    }
-    */
-    
-    @Test
-    public void greeting() throws Exception {
-	mockMvc.perform(get("/greeting"))
-	    .andExpect(content().string(containsString("Hello, World!")));
-    }
-
-    @Test
-    public void greetingWithUser() throws Exception {
-	mockMvc.perform(get("/greeting").param("name", "KISHIDA"))
-	    .andExpect(content().string(containsString("Hello, KISHIDA!")));
+    public void toppage() throws Exception {
+	mockMvc.perform(get("/"))
+	    .andExpect(content().string(containsString("CICD")));
     }
     
 }

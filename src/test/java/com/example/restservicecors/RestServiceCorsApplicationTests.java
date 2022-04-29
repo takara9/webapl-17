@@ -51,7 +51,7 @@ public class RestServiceCorsApplicationTests {
     @Test
     public void accessing_REST_API_user() throws Exception {
 	mockMvc.perform(get("/user"))
-	    .andExpect(content().string(containsString("[")));
+	    .andExpect(content().string(containsString("{")));
     }
    
 }

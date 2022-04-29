@@ -15,7 +15,7 @@ pipeline {
 
   stages {
 
-    stage ('ソースコードのテスト') {
+    stage ('ユニットテスト') {
       steps {
         sh 'mvn -Dmaven.test.failure.ignore=true test' 
       }
@@ -48,34 +48,30 @@ pipeline {
 	         sh '''
                  export ANCHORE_CLI_URL=http://localhost:8228/v1
                  export ANCHORE_CLI_USER=admin
-		 anchore-cli image add  $image
+                 anchore-cli image add  $image
                  anchore-cli image wait $image
                  anchore-cli image vuln $image all
-		 #anchore-cli evaluate check $image --detail
-                 #anchore-cli image content $image os
-                 #anchore-cli image content $image npm
-		 '''
-		 }}}}
-
+                 anchore-cli image content $image os
+                 anchore-cli image content $image java                 
+		 '''}}}}
 
     stage('K8sクラスタへのデプロイ') {
       steps {
         script {
-	   withCredentials([string(credentialsId: "argocd-deploy-role", variable: 'ARGOCD_AUTH_TOKEN')]) {
-              sh '''
-              export ARGOCD_SERVER="argocd-server.argocd.k8s4.labo.local"
-              APP_NAME="webapl-17"
-              IMAGE_DIGEST=$(docker image inspect $image -f '{{join .RepoDigests ","}}')
-              argocd --grpc-web app set  $APP_NAME --insecure --kustomize-image $IMAGE_DIGEST
-              argocd --grpc-web app sync $APP_NAME --insecure --force --timeout 600
-              argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
-              '''
-	   }}}}}
+              withCredentials([string(credentialsId: "argocd-deploy-role", variable: 'ARGOCD_AUTH_TOKEN')]) {
+                  sh '''
+                  export ARGOCD_SERVER="argocd-server.argocd.k8s4.labo.local"
+                  APP_NAME="webapl-17"
+                  IMAGE_DIGEST=$(docker image inspect $image -f '{{join .RepoDigests ","}}')
+                  argocd --grpc-web app set  $APP_NAME --insecure --kustomize-image $IMAGE_DIGEST
+                  argocd --grpc-web app sync $APP_NAME --insecure --force --timeout 600
+                  argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
+                  '''}}}}}
   
   post {
       always {
           sh 'docker rmi $image'
-	  //sh 'docker system prune --all --force'
+          //sh 'docker system prune --all --force'
       }}
 
 }

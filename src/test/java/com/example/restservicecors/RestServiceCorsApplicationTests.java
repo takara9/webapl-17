@@ -26,5 +26,19 @@ public class RestServiceCorsApplicationTests {
 	mockMvc.perform(get("/index.html"))
 	    .andExpect(content().string(containsString("CICD")));
     }
+
+    @Test
+    public void list() throws Exception {
+	mockMvc.perform(get("/list.html"))
+	    .andExpect(content().string(containsString("LIST")));
+    }
+    
+
+    @Test
+    public void input() throws Exception {
+	mockMvc.perform(get("/input.html"))
+	    .andExpect(content().string(containsString("FORM")));
+    }
+
     
 }

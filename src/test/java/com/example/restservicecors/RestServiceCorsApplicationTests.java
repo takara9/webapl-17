@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 //@WebMvcTest(controllers = GreetingController.class)
 //@SpringBootTest
-@WebMvcTest
+@WebMvcTest(controllers = UserController.class)
 public class RestServiceCorsApplicationTests {
 
     @Autowired

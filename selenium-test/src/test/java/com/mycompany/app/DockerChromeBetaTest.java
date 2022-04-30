@@ -23,7 +23,8 @@ public class DockerChromeBetaTest {
     WebDriver driver;
 
     WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker()
-            .browserVersion("beta");
+        .enableRecording();
+        //.browserVersion("beta");
 
     @BeforeEach
     public void setupTest() {
@@ -41,6 +42,10 @@ public class DockerChromeBetaTest {
     public void it_rest_users() {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
+
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        Path recordingPath = wdm.getDockerRecordingPath();
+        assertThat(recordingPath).exists();
     }
 
     @Test

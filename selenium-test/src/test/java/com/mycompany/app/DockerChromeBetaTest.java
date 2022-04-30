@@ -1,26 +1,22 @@
 package com.mycompany.app;
 
-import static io.github.bonigarcia.wdm.WebDriverManager.isDockerAvailable;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assumptions.assumeThat;
-//import static org.junit.Assert.assertTrue;
-//import org.junit.Test;
+import java.time.Duration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-
-
-import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+
+import static io.github.bonigarcia.wdm.WebDriverManager.isDockerAvailable;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assumptions.assumeThat;
+
 
 public class DockerChromeBetaTest {
 

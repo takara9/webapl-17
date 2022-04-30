@@ -67,7 +67,18 @@ pipeline {
                   argocd --grpc-web app sync $APP_NAME --insecure --force --timeout 600
                   argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
                   '''}}}}}
-  
+
+    stage ('統合テスト') {
+      steps {
+         sh '''
+	 cd selenium-test
+         mvn -Dmaven.test.failure.ignore=true test'
+	 ''' }
+      post {
+        success {
+           junit 'selenium-test/target/surefire-reports/**/*.xml' 
+        }}}
+
   post {
       always {
           sh 'docker rmi $image'

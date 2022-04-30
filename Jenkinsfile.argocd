@@ -66,7 +66,7 @@ pipeline {
                   argocd --grpc-web app set  $APP_NAME --insecure --kustomize-image $IMAGE_DIGEST
                   argocd --grpc-web app sync $APP_NAME --insecure --force --timeout 600
                   argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
-                  '''}}}}}
+                  '''}}}}
 
     stage ('統合テスト') {
       steps {
@@ -77,8 +77,7 @@ pipeline {
       post {
         success {
            junit 'selenium-test/target/surefire-reports/**/*.xml' 
-        }}}
-
+        }}}}
   post {
       always {
           sh 'docker rmi $image'

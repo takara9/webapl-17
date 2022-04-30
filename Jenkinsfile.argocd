@@ -72,7 +72,7 @@ pipeline {
       steps {
          sh '''
 	 cd selenium-test
-         mvn -Dmaven.test.failure.ignore=true test'
+         mvn -Dmaven.test.failure.ignore=true test
 	 ''' }
       post {
         success {

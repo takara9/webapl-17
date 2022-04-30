@@ -43,7 +43,8 @@ public class DockerChromeBetaTest {
     public void it_rest_users() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+	
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();
@@ -53,6 +54,7 @@ public class DockerChromeBetaTest {
     public void it_rest_input_user() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         Path recordingPath = wdm.getDockerRecordingPath();

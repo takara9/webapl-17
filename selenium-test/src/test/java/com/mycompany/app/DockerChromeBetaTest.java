@@ -50,7 +50,7 @@ public class DockerChromeBetaTest {
     }
 
     @Test
-    public void it_rest_input_user() {
+    public void it_rest_input_user() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
 	
@@ -60,8 +60,7 @@ public class DockerChromeBetaTest {
     }
 
     @Test
-    public void shouldAnswerWithTrue()
-    {
+    public void shouldAnswerWithTrue() throws Exception {
         driver.get("https://google.com");
         Assertions.assertEquals("Google", driver.getTitle());
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));

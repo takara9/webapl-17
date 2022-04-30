@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 import java.time.Duration;
+import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

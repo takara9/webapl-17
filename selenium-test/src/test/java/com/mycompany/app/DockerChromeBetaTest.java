@@ -40,7 +40,7 @@ public class DockerChromeBetaTest {
 
     /* テスト本体 */
     @Test
-    public void it_rest_users() {
+    public void it_rest_users() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
 

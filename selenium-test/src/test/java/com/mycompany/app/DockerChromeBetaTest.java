@@ -53,6 +53,10 @@ public class DockerChromeBetaTest {
     public void it_rest_input_user() {
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
+	
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        Path recordingPath = wdm.getDockerRecordingPath();
+        assertThat(recordingPath).exists();
     }
 
     @Test

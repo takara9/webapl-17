@@ -72,7 +72,7 @@ pipeline {
       steps {
          sh '''
 	 cd selenium-test
-	 mvn clean
+	 rm -f *.mp4	 
          mvn -Dmaven.test.failure.ignore=true test
 	 ''' }
       post {

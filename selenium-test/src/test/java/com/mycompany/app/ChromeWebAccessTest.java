@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assumptions.assumeThat;
 
 
-public class DockerChromeBetaTest {
+public class ChromeWebAccessTest {
 
     WebDriver driver;
 
@@ -75,14 +75,4 @@ public class DockerChromeBetaTest {
         searchBox = driver.findElement(By.name("q"));
         Assertions.assertEquals("Selenium", searchBox.getAttribute("value"));
     }
-
-
 }
-
-
-
-
-
-
-
-

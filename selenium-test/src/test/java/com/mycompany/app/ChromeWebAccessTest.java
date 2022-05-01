@@ -38,9 +38,9 @@ public class ChromeWebAccessTest {
         wdm.quit();
     }
 
-    /* テスト本体 */
+    // トップページからビジターリストへ遷移
     @Test
-    public void it_トップページ表示() throws Exception {
+    public void it_トップからリスト画面遷移() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -56,6 +56,44 @@ public class ChromeWebAccessTest {
         System.out.println("path = " + recordingPath);
         assertThat(recordingPath).exists();
     }
+
+    // トップページからインプットへ遷移
+    @Test
+    public void it_トップからインプット画面遷移() throws Exception {
+        driver.get("http://webapl-17.test.k8s4.labo.local/");
+        assertThat(driver.getTitle()).contains("ビジターブック");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+
+        // 画面を２秒表示
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        driver.findElement(By.xpath("//a[text()='ビジター登録']")).click(); 
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+
+        // 画面を２秒表示
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        Path recordingPath = wdm.getDockerRecordingPath();
+        System.out.println("path = " + recordingPath);
+        assertThat(recordingPath).exists();
+    }
+
+    // ビジター登録
+    @Test
+    public void it_ユーザー登録画面() throws Exception {
+        driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
+        assertThat(driver.getTitle()).contains("ビジター登録");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+	
+        WebElement searchBox = driver.findElement(By.name("user_name"));
+        searchBox.sendKeys("吉高 百合子");
+
+        WebElement searchButton = driver.findElement(By.name("submit"));
+        searchButton.click();   
+        
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        Path recordingPath = wdm.getDockerRecordingPath();
+        assertThat(recordingPath).exists();
+    }
+
     
     @Test
     public void it_ユーザーのリスト表示() throws Exception {
@@ -68,16 +106,6 @@ public class ChromeWebAccessTest {
         assertThat(recordingPath).exists();
     }
 
-    @Test
-    public void it_ユーザー登録画面() throws Exception {
-        driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
-        assertThat(driver.getTitle()).contains("Hello AngularJS");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-	
-        Thread.sleep(Duration.ofSeconds(2).toMillis());
-        Path recordingPath = wdm.getDockerRecordingPath();
-        assertThat(recordingPath).exists();
-    }
 
     @Test
     public void shouldAnswerWithTrue() throws Exception {

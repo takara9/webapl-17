@@ -40,6 +40,17 @@ public class ChromeWebAccessTest {
 
     /* テスト本体 */
     @Test
+    public void it_トップページ表示() throws Exception {
+        driver.get("http://webapl-17.test.k8s4.labo.local/");
+        assertThat(driver.getTitle()).contains("Hello AngularJS");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+	
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        Path recordingPath = wdm.getDockerRecordingPath();
+        assertThat(recordingPath).exists();
+    }
+    
+    @Test
     public void it_ユーザーのリスト表示() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");

@@ -1,7 +1,7 @@
 package com.example.visitorsbook;
 
 import org.springframework.data.repository.CrudRepository;
-import com.example.restservicecors.User;
+import com.example.visitorsbook.User;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete

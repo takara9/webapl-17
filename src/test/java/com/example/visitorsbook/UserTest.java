@@ -6,7 +6,9 @@ import org.junit.Test;
 
 public class UserTest {
 
-    
+    /*
+      登録テスト
+    */
     User user = new User(9999, "test_name","test@labo.local","emacs");
     
     @Test

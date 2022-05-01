@@ -40,7 +40,7 @@ public class DockerChromeBetaTest {
 
     /* テスト本体 */
     @Test
-    public void it_rest_users() throws Exception {
+    public void it_ユーザーのリスト表示() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -51,7 +51,7 @@ public class DockerChromeBetaTest {
     }
 
     @Test
-    public void it_rest_input_user() throws Exception {
+    public void it_ユーザー登録画面() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("Hello AngularJS");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));

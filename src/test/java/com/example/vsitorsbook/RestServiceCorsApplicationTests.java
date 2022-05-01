@@ -29,7 +29,7 @@ public class RestServiceCorsApplicationTests {
     @Test
     public void accessing_html_list_view() throws Exception {
 	mockMvc.perform(get("/list.html"))
-	    .andExpect(content().string(containsString("LIST")));
+	    .andExpect(content().string(containsString("メールアドレス:")));
     }
  
     // スタティックなWebページを応答 

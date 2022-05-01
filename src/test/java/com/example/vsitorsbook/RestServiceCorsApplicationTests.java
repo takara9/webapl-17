@@ -32,6 +32,7 @@ public class RestServiceCorsApplicationTests {
 	    .andExpect(content().string(containsString("メールアドレス:")));
     }
  
+    
     // スタティックなWebページを応答 
     @Test
     public void accessing_html_input_user_info() throws Exception {

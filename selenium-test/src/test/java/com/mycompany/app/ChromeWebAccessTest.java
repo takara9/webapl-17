@@ -45,6 +45,7 @@ public class ChromeWebAccessTest {
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
+        driver.findElement(By.xpath("//a[text()='ビジターのリスト表示']")).click(); 
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();

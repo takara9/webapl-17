@@ -53,6 +53,7 @@ public class ChromeWebAccessTest {
         // 画面を２秒表示
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         Path recordingPath = wdm.getDockerRecordingPath();
+        System.out.println("path = " + recordingPath);
         assertThat(recordingPath).exists();
     }
     

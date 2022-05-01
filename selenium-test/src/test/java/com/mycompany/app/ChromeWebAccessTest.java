@@ -44,8 +44,13 @@ public class ChromeWebAccessTest {
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-	
+
+        // 画面を２秒表示
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
         driver.findElement(By.xpath("//a[text()='ビジターのリスト表示']")).click(); 
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+
+        // 画面を２秒表示
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();

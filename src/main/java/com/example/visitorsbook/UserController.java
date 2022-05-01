@@ -1,4 +1,4 @@
-package com.example.restservicecors;
+package com.example.visitorsbook;
 
 import java.util.concurrent.atomic.AtomicLong;
 

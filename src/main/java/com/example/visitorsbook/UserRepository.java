@@ -1,4 +1,4 @@
-package com.example.restservicecors;
+package com.example.visitorsbook;
 
 import org.springframework.data.repository.CrudRepository;
 import com.example.restservicecors.User;

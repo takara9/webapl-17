@@ -1,4 +1,4 @@
-package com.example.restservicecors;
+package com.example.visitorsbook;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -84,11 +84,11 @@ public class ChromeWebAccessTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
         // テストユーザー登録
-        WebElement searchBox = driver.findElement(By.name("user_name"));
-        searchBox.sendKeys("吉高 百合子");
+        WebElement searchBox1 = driver.findElement(By.name("user_name"));
+        searchBox1.sendKeys("吉高 百合子");
 
-        WebElement searchBox = driver.findElement(By.name("user_email"));
-        searchBox.sendKeys("yoshitaka@labo.local");
+        WebElement searchBox2 = driver.findElement(By.name("user_email"));
+        searchBox2.sendKeys("yoshitaka@labo.local");
 
         WebElement radio1 = driver.findElement(By.name("rb-1"));
         WebElement radio2 = driver.findElement(By.name("rb-2"));

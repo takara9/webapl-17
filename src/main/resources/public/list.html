@@ -2,20 +2,20 @@
 <html lang="ja" ng-app="list">
 <head>
 <meta charset="utf-8">
-<title>Hello AngularJS</title>
+<title>ビジターリスト</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script src="list.js"></script>
 </head>
 <body>
-<h1>AngularJS LIST</h1>
+<h1>ビジターリスト</h1>
 
 <div ng-controller="listController">
   <table class="table">
     <tr>
       <th>Id</th>
-      <th>Name</th>
+      <th>名前</th>
       <th>メール</th>
-      <th>Prefferd Editor</th>
+      <th>好みのエディター</th>
     </tr>
     <tr ng-repeat="(key, value) in users">
       <td>{{ key }}</td>

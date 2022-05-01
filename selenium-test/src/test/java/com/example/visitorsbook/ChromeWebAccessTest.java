@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package com.example.visitorbook;
 
 import java.time.Duration;
 import java.nio.file.Path;

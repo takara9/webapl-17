@@ -8,13 +8,13 @@
 </head>
 
 <body>
-<h1>Visitor registration ビジター登録</h1>
+<h1>ビジター登録</h1>
 
 <div ng-controller="InputController">
   <form novalidate class="simple-form">
-    <label>name: <input type="text" name="user_name" ng-model="user.name" /></label><br />
-    <label>E-Mail: <input type="email" name="user_email" ng-model="user.email" /></label><br />
-    Prefferd Editor: 
+    <label>名前: <input type="text" name="user_name" ng-model="user.name" /></label><br />
+    <label>メールアドレス: <input type="email" name="user_email" ng-model="user.email" /></label><br />
+    好みのエディター: 
     <label><input type="radio" ng-model="user.preference" value="vi" />vi</label>
     <label><input type="radio" ng-model="user.preference" value="emacs" />emacs</label><br />
 

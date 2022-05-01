@@ -42,7 +42,7 @@ public class ChromeWebAccessTest {
     @Test
     public void it_トップページ表示() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/");
-        assertThat(driver.getTitle()).contains("Hello AngularJS");
+        assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
         Thread.sleep(Duration.ofSeconds(2).toMillis());

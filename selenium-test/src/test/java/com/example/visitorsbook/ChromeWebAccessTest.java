@@ -83,9 +83,17 @@ public class ChromeWebAccessTest {
         assertThat(driver.getTitle()).contains("ビジター登録");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
+        // テストユーザー登録
         WebElement searchBox = driver.findElement(By.name("user_name"));
         searchBox.sendKeys("吉高 百合子");
 
+        WebElement searchBox = driver.findElement(By.name("user_email"));
+        searchBox.sendKeys("yoshitaka@labo.local");
+
+        WebElement radio1 = driver.findElement(By.name("rb-1"));
+        WebElement radio2 = driver.findElement(By.name("rb-2"));
+        radio2.click();
+        
         WebElement searchButton = driver.findElement(By.name("submit"));
         searchButton.click();   
         
@@ -98,7 +106,7 @@ public class ChromeWebAccessTest {
     @Test
     public void it_ユーザーのリスト表示() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
-        assertThat(driver.getTitle()).contains("Hello AngularJS");
+        assertThat(driver.getTitle()).contains("ビジターリスト");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
         Thread.sleep(Duration.ofSeconds(2).toMillis());

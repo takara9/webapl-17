@@ -15,8 +15,8 @@
     <label>名前: <input type="text" name="user_name" ng-model="user.name" /></label><br />
     <label>メールアドレス: <input type="email" name="user_email" ng-model="user.email" /></label><br />
     好みのエディター: 
-    <label><input type="radio" ng-model="user.preference" value="vi" />vi</label>
-    <label><input type="radio" ng-model="user.preference" value="emacs" />emacs</label><br />
+    <label><input type="radio" name="rb-1" ng-model="user.preference" value="vi" />vi</label>
+    <label><input type="radio" name="rb-2" ng-model="user.preference" value="emacs" />emacs</label><br />
 
     <input type="button" name="reset" ng-click="reset()" value="Reset" />
     <input type="submit" name="submit" ng-click="update(user)" value="Save" />

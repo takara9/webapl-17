@@ -22,14 +22,14 @@ public class RestServiceCorsApplicationTests {
     @Test
     public void accessing_html_top_page() throws Exception {
 	mockMvc.perform(get("/index.html"))
-	    .andExpect(content().string(containsString("CICD")));
+	    .andExpect(content().string(containsString("ビジター")));
     }
 
     // スタティックなWebページを応答
     @Test
     public void accessing_html_list_view() throws Exception {
 	mockMvc.perform(get("/list.html"))
-	    .andExpect(content().string(containsString("E-Mail")));
+	    .andExpect(content().string(containsString("メール")));
     }
  
     

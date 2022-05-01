@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.hamcrest.Matchers.containsString;
 
-@WebMvcTest(controllers = User.class)
+@WebMvcTest(controllers = RestServiceCorsApplication.class)
 public class RestServiceCorsApplicationTest {
 
     @Autowired

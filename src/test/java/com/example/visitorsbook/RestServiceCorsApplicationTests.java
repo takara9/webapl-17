@@ -1,4 +1,4 @@
-package com.example.visitorsbook.ut;
+package com.example.visitorsbook;
 
 import org.junit.jupiter.api.Test;
 

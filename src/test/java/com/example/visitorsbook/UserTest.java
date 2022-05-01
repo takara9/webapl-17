@@ -1,4 +1,4 @@
-package com.example.visitorsbook.ut;
+package com.example.visitorsbook;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;

@@ -37,7 +37,7 @@ public class RestServiceCorsApplicationTests {
     @Test
     public void accessing_html_input_user_info() throws Exception {
 	mockMvc.perform(get("/input.html"))
-	    .andExpect(content().string(containsString("FORM")));
+	    .andExpect(content().string(containsString("ビジター登録")));
     }
 
     // テストの状態ではDBへの接続が無いため、エラーが発生することが期待値

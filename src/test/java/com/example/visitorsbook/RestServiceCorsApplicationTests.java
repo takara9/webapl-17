@@ -23,7 +23,7 @@ public class RestServiceCorsApplicationTests {
 
     // トップページは単独て表示可能なため、成功しなければならない。
     @Test
-    public void accessing_html_top_page() throws Exception {
+    public void ブラウザアクセス_トップページ() throws Exception {
 	     mockMvc.perform(get("/"))
 	       .andExpect(status().is2xxSuccessful());
     }
@@ -31,7 +31,7 @@ public class RestServiceCorsApplicationTests {
     // テストの状態ではDBへの接続が無いため、エラーが発生することが期待値
     // ユニットテストの範囲外として、統合テストの項目として処理する
     @Test
-    public void accessing_REST_API_user_list() throws Exception {
+    public void モック_ビジターリスト() throws Exception {
 	mockMvc.perform(get("/users"))
 		.andExpect(status().is4xxClientError());
     }
@@ -39,7 +39,7 @@ public class RestServiceCorsApplicationTests {
     // テストの状態ではDBへの接続が無いため、エラーが発生することが期待値
     // ユニットテストの範囲外として、統合テストの項目として処理する
     @Test
-    public void accessing_REST_API_user() throws Exception {
+    public void モック_ビジター情報() throws Exception {
 	mockMvc.perform(get("/user"))
 	    .andExpect(status().is4xxClientError());
     }

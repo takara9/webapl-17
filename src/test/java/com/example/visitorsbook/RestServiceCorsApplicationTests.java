@@ -22,26 +22,26 @@ public class RestServiceCorsApplicationTests {
     private MockMvc mockMvc;
 
     // スタティックなWebページを応答
-    @Test
-    public void accessing_html_top_page() throws Exception {
-	mockMvc.perform(get("/index.html"))
-	    .andExpect(content().string(containsString("ビジター")));
-    }
+    //@Test
+    //public void accessing_html_top_page() throws Exception {
+	//mockMvc.perform(get("/index.html"))
+	//    .andExpect(content().string(containsString("ビジター")));
+    //}
 
     // スタティックなWebページを応答
-    @Test
-    public void accessing_html_list_view() throws Exception {
-	mockMvc.perform(get("/list.html"))
-	    .andExpect(content().string(containsString("メール")));
-    }
+    //@Test
+    //public void accessing_html_list_view() throws Exception {
+	//mockMvc.perform(get("/list.html"))
+	//    .andExpect(content().string(containsString("メール")));
+    //}
  
     
     // スタティックなWebページを応答 
-    @Test
-    public void accessing_html_input_user_info() throws Exception {
-	mockMvc.perform(get("/input.html"))
-	    .andExpect(content().string(containsString("ユーザー登録")));
-    }
+    //@Test
+    //public void accessing_html_input_user_info() throws Exception {
+	//mockMvc.perform(get("/input.html"))
+	//    .andExpect(content().string(containsString("ユーザー登録")));
+    //}
 
     // テストの状態ではDBへの接続が無いため、エラーが発生することが期待値
     // ユニットテストの範囲外として、統合テストの項目として処理する

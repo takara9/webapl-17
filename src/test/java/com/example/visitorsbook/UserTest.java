@@ -12,22 +12,22 @@ public class UserTest {
     User user = new User(9999, "test_name","test@labo.local","emacs");
     
     @Test
-	public void user_get() {
+	public void ユニットテスト_user_getId() {
 		assertThat(user.getId(), is(9999));
 	}
 
     @Test
-    public void user_name() {
+    public void ユニットテスト_user_getName() {
         assertThat(user.getName(), is("test_name"));
     }
 
     @Test
-    public void user_email() {
+    public void ユニットテスト_user_getEmail() {
         assertThat(user.getEmail(), is("test@labo.local"));
     }
 
     @Test
-    public void user_preference() {
+    public void ユニットテスト_user_getPreference() {
         assertThat(user.getPreference(), is("emacs"));
     }
 

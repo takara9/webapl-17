@@ -23,6 +23,7 @@ public class RestApiTests {
         HttpGet request = new HttpGet("http://webapl-17.test.k8s4.labo.local/users");
         HttpResponse response = client.execute(request);
         
+        assertThat(response, is(notNullValue()));;
         /*
         BufferedReader rd = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
         String line = '';

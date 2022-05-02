@@ -40,7 +40,7 @@ public class UserController {
     }    
 
     @GetMapping("/user/{id}")
-    User one(@PathVariable Long id) {
+    User one(@PathVariable Integer id) {
         return userRepository.findById(id);
     }
 

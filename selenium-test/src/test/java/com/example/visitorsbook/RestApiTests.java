@@ -13,7 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.hamcrest.CoreMatchers.
+import static org.hamcrest.CoreMatchers.*;
 
 public class RestApiTests {
 

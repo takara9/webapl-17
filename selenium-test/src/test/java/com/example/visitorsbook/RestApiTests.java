@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 //import static org.hamcrest.CoreMatchers.*;
-import org.hamcrest.Matchers.notNullValuel
+import org.hamcrest.Matchers.notNullValuel;
 
 public class RestApiTests {
 

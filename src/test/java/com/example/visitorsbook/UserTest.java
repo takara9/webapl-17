@@ -12,7 +12,7 @@ public class UserTest {
     User user = new User(9999, "test_name","test@labo.local","emacs");
     
     @Test
-	private void extracted() {
+	public void user_get() {
 		assertThat(user.getId(), is(9999));
 	}
 

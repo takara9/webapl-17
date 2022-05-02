@@ -23,13 +23,14 @@ public class ChromeWebAccessTest {
 
     WebDriver driver;
 
-    WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker()
-        .enableRecording();
-        //.browserVersion("beta");
+    WebDriverManager wdm = WebDriverManager
+    		.chromedriver()
+    		.browserInDocker()
+    		.enableRecording();
 
     @BeforeEach
     public void setupTest() {
-        //assumeThat(isDockerAvailable()).isTrue();
+        assumeThat(isDockerAvailable()).isTrue();
         driver = wdm.create();
     }
 

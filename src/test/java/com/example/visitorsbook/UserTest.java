@@ -12,9 +12,9 @@ public class UserTest {
     User user = new User(9999, "test_name","test@labo.local","emacs");
     
     @Test
-    public void user_id() {
-        assertThat(user.getId(), is(9999));
-    }
+	private void extracted() {
+		assertThat(user.getId(), is(9999));
+	}
 
     @Test
     public void user_name() {

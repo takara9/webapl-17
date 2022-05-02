@@ -41,8 +41,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     User one(@PathVariable Long id) {
-        User user = repository.findById(id)
-                   .orElseThrow(() -> new EmployeeNotFoundException(id));
+        User user = userRepository.findById(id)
         return assembler.toModel(user);
     }
 

@@ -15,12 +15,15 @@ public class RestApiTests {
     public void test() throws Exception {
 		
         HttpClient client = new DefaultHttpClient();
-        HttpGet request = new HttpGet('http://restUrl');
+        HttpGet request = new HttpGet('http://webapl-17.test.k8s4.labo.local/users');
         HttpResponse response = client.execute(request);
+
+        /*
         BufferedReader rd = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
         String line = '';
         while ((line = rd.readLine()) != null) {
            System.out.println(line);
         }
+        */
     }
 }

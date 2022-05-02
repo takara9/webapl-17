@@ -13,8 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-//import static org.hamcrest.CoreMatchers.*;
-import org.hamcrest.Matchers.notNullValue;
+import org.hamcrest.Matchers;
 
 public class RestApiTests {
 
@@ -24,7 +23,7 @@ public class RestApiTests {
         HttpGet request = new HttpGet("http://webapl-17.test.k8s4.labo.local/users");
         HttpResponse response = client.execute(request);
         
-        assertThat(response, is(notNullValue()));;
+        assertThat(response, is(notNullValue()));
         /*
         BufferedReader rd = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
         String line = '';

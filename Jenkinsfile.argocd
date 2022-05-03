@@ -68,7 +68,20 @@ pipeline {
                   argocd --grpc-web app wait $APP_NAME --insecure --timeout 600
                   '''}}}}
 
-    stage ('統合テスト') {
+    stage ('統合テスト#1') {
+      steps {
+         sh '''
+            cd rest-test
+            mvn clean	 
+            mvn -Dmaven.test.failure.ignore=true test
+	        ''' }
+      post {
+        success {
+           junit 'rest-test/target/surefire-reports/**/*.xml' 
+        }}}}
+
+
+    stage ('統合テスト#2') {
       steps {
          sh '''
             cd selenium-test

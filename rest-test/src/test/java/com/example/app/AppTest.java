@@ -22,7 +22,7 @@ import org.apache.http.impl.client.*;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
-public class RestApiTests
+public class AppTest 
 {
 
     private String url = "http://webapl-17.test.k8s4.labo.local";

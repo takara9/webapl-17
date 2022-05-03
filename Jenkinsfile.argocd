@@ -84,6 +84,7 @@ pipeline {
     stage ('統合テスト#2') {
       steps {
          sh '''
+            env
             cd selenium-test
             rm -f *.mp4
             mvn clean	 

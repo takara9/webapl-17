@@ -78,7 +78,7 @@ pipeline {
       post {
         success {
            junit 'rest-test/target/surefire-reports/**/*.xml' 
-        }}}}
+        }}}
 
 
     stage ('統合テスト#2') {

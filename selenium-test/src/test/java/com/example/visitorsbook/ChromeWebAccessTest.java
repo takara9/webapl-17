@@ -19,18 +19,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assumptions.assumeThat;
 
 
-public class ChromeWebAccessTests {
+public class ChromeWebAccessTest {
 
     WebDriver driver;
 
-    WebDriverManager wdm = WebDriverManager
-    		.chromedriver()
-    		.browserInDocker()
-    		.enableRecording();
+    WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker()
+        .enableRecording();
+        //.browserVersion("beta");
 
     @BeforeEach
     public void setupTest() {
-        assumeThat(isDockerAvailable()).isTrue();
+        //assumeThat(isDockerAvailable()).isTrue();
         driver = wdm.create();
     }
 
@@ -77,7 +76,6 @@ public class ChromeWebAccessTests {
         assertThat(recordingPath).exists();
     }
 
-
     // ビジター登録
     @Test
     public void it_ユーザー登録画面() throws Exception {
@@ -103,6 +101,7 @@ public class ChromeWebAccessTests {
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();
     }
+
     
     @Test
     public void it_ユーザーのリスト表示() throws Exception {

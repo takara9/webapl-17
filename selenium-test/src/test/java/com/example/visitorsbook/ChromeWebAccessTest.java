@@ -41,6 +41,8 @@ public class ChromeWebAccessTest {
     // トップページからビジターリストへ遷移
     @Test
     public void it_トップからリスト画面遷移() throws Exception {
+        System.out.println("it_トップからリスト画面遷移");
+
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -60,6 +62,8 @@ public class ChromeWebAccessTest {
     // トップページからインプットへ遷移
     @Test
     public void it_トップからインプット画面遷移() throws Exception {
+        System.out.println("it_トップからインプット画面遷移");
+
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -79,6 +83,8 @@ public class ChromeWebAccessTest {
     // ビジター登録
     @Test
     public void it_ユーザー登録画面() throws Exception {
+        System.out.println("it_ユーザー登録画面");
+
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("ビジター登録");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -105,6 +111,8 @@ public class ChromeWebAccessTest {
     
     @Test
     public void it_ユーザーのリスト表示() throws Exception {
+        System.out.println("it_ユーザーのリスト表示");
+
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("ビジターリスト");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -116,7 +124,9 @@ public class ChromeWebAccessTest {
 
 
     @Test
-    public void shouldAnswerWithTrue() throws Exception {
+    public void ref_リファレンステスト_グーグル検索() throws Exception {
+        System.out.println("it_グーグル検索");
+        
         driver.get("https://google.com");
         Assertions.assertEquals("Google", driver.getTitle());
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));

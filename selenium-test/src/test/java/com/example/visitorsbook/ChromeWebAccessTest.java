@@ -76,6 +76,7 @@ public class ChromeWebAccessTest {
         assertThat(recordingPath).exists();
     }
 
+
     // ビジター登録
     @Test
     public void it_ユーザー登録画面() throws Exception {
@@ -101,7 +102,6 @@ public class ChromeWebAccessTest {
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();
     }
-
     
     @Test
     public void it_ユーザーのリスト表示() throws Exception {

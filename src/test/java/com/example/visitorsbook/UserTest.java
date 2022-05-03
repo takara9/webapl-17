@@ -8,7 +8,7 @@ public class UserTest {
 
     User user = new User(9999, "test_name","test@labo.local","emacs");
     
-    @Test
+	@Test
 	public void ユニットテスト_user_getId() {
 		assertThat(user.getId(), is(9999));
 	}
@@ -23,7 +23,7 @@ public class UserTest {
         assertThat(user.getEmail(), is("test@labo.local"));
     }
 
-    @Test
+	@Test
     public void ユニットテスト_user_getPreference() {
         assertThat(user.getPreference(), is("emacs"));
     }

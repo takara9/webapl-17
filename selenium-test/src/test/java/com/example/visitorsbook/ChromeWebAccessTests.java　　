@@ -79,7 +79,6 @@ public class ChromeWebAccessTests {
 
 
     // ビジター登録
-/*
     @Test
     public void it_ユーザー登録画面() throws Exception {
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
@@ -104,7 +103,6 @@ public class ChromeWebAccessTests {
         Path recordingPath = wdm.getDockerRecordingPath();
         assertThat(recordingPath).exists();
     }
-*/
     
     @Test
     public void it_ユーザーのリスト表示() throws Exception {

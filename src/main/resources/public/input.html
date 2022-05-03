@@ -14,32 +14,32 @@
 <div ng-controller="InputController">
 <table>
   <form novalidate class="simple-form">
-  <tr>>
-  	<th width="100">項目</th>
-  	<th width="100">値</th width="100">
+  <tr>
+  	<th width="200">項目</th>
+  	<th width="200">値</th>
   </tr>
   <tr>
     <label>
     <td>名前: </td>
-    <td>><input type="text" name="user_name" ng-model="user.name" /></td>
+    <td><input type="text" name="user_name" ng-model="user.name" /></td>
     </label>
   </tr>
-  <tr>>
+  <tr>
     <label>
     <td>メールアドレス: </td>
-    <td>><input type="email" name="user_email" ng-model="user.email" /></td>
+    <td><input type="email" name="user_email" ng-model="user.email" /></td>
     </label>
   </tr>
   <tr>
     <td>>好みのエディター:</td>
     <td> 
     <label><input type="radio" name="rb-1" ng-model="user.preference" value="vi" />vi</label>
-    <label><input type="radio" name="rb-2" ng-model="user.preference" value="emacs" />emacs</label><br />
+    <label><input type="radio" name="rb-2" ng-model="user.preference" value="emacs" />emacs</label>
     </td>
   </tr>
-  <tr>>
-    <td>><input type="button" name="reset" ng-click="reset()" value="Reset" /></td>
-    <td>><input type="submit" name="submit" ng-click="update(user)" value="Save" /></td>
+  <tr>
+    <td><input type="button" name="reset" ng-click="reset()" value="Reset" /></td>
+    <td><input type="submit" name="submit" ng-click="update(user)" value="Save" /></td>
   </tr>
   </form>
 </table>

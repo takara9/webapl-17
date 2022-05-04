@@ -50,7 +50,7 @@ public class ChromeWebAccessTest {
     @Test
     public void it_トップからリスト画面遷移001() throws Exception {
         System.out.println("it_トップからリスト画面遷移001");
-
+        wdm.dockerRecordingPrefix("001");
         driver.get(url + "/");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Thread.sleep(Duration.ofSeconds(2).toMillis());

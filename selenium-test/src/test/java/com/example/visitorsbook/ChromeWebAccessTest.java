@@ -49,7 +49,7 @@ public class ChromeWebAccessTest {
     // トップページからビジターリストへ遷移
     @Test
     public void it_トップからリスト画面遷移001() throws Exception {
-    	wdm.dockerRecordingPrefix = "001";
+    	wdm.dockerRecordingPrefix("001");
         System.out.println("it_トップからリスト画面遷移001");
         driver.get(url + "/");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));

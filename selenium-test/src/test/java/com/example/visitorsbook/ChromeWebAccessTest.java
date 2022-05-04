@@ -33,7 +33,11 @@ public class ChromeWebAccessTest {
     @BeforeEach
     public void setupTest() {
         //assumeThat(isDockerAvailable()).isTrue();
-        driver = wdm.create();
+    	ChromeOptions handlingSSL = new ChromeOptions();
+    	handlingSSL.setAcceptInsecureCerts(true);
+    	
+        driver = wdm.create(handlingSSL);
+        
     }
 
     @AfterEach

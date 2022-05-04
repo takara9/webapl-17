@@ -25,7 +25,8 @@ import org.json.simple.parser.*;
 public class RestApiTest
 {
 
-    private String url = "http://webapl-17.test.k8s4.labo.local";
+    //private String url = "http://webapl-17.test.k8s4.labo.local";
+	private String url = "https://ingress.k8s4.labo.local/";
     private String user_data = "{ \"name\": \"広瀬 アリス\", \"email\": \"alice@labo.local\", \"preference\": \"emacs\"}";
     private String[] users = {
 	"{ \"name\": \"広瀬 アリス\", \"email\": \"alice@labo.local\", \"preference\": \"emacs\"}",

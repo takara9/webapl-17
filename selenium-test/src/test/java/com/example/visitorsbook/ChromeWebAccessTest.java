@@ -44,7 +44,7 @@ public class ChromeWebAccessTest {
         System.out.println("it_トップからリスト画面遷移");
 
         driver.get("http://webapl-17.test.k8s4.labo.local/");
-        assertThat(driver.getTitle()).contains("ビジターブック");
+        assertThat(driver.getTitle()).contains("ビジターブックx");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
         // 画面を２秒表示

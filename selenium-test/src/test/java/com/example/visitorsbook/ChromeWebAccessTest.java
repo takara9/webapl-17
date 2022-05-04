@@ -40,12 +40,13 @@ public class ChromeWebAccessTest {
 
     // トップページからビジターリストへ遷移
     @Test
-    public void it_トップからリスト画面遷移() throws Exception {
-        System.out.println("it_トップからリスト画面遷移");
+    public void it_トップからリスト画面遷移001() throws Exception {
+        System.out.println("it_トップからリスト画面遷移001");
 
         driver.get("http://webapl-17.test.k8s4.labo.local/");
-        assertThat(driver.getTitle()).contains("ビジターブックx");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+        Thread.sleep(Duration.ofSeconds(2).toMillis());
+        assertThat(driver.getTitle()).contains("ビジターブックx");
 
         // 画面を２秒表示
         Thread.sleep(Duration.ofSeconds(2).toMillis());
@@ -61,8 +62,8 @@ public class ChromeWebAccessTest {
 
     // トップページからインプットへ遷移
     @Test
-    public void it_トップからインプット画面遷移() throws Exception {
-        System.out.println("it_トップからインプット画面遷移");
+    public void it_トップからインプット画面遷移002() throws Exception {
+        System.out.println("it_トップからインプット画面遷移002");
 
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         assertThat(driver.getTitle()).contains("ビジターブック");
@@ -82,8 +83,8 @@ public class ChromeWebAccessTest {
 
     // ビジター登録
     @Test
-    public void it_ユーザー登録画面() throws Exception {
-        System.out.println("it_ユーザー登録画面");
+    public void it_ユーザー登録画面003() throws Exception {
+        System.out.println("it_ユーザー登録画面003");
 
         driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
         assertThat(driver.getTitle()).contains("ビジター登録");
@@ -110,8 +111,8 @@ public class ChromeWebAccessTest {
 
     
     @Test
-    public void it_ユーザーのリスト表示() throws Exception {
-        System.out.println("it_ユーザーのリスト表示");
+    public void it_ユーザーのリスト表示004() throws Exception {
+        System.out.println("it_ユーザーのリスト表示004");
 
         driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
         assertThat(driver.getTitle()).contains("ビジターリスト");
@@ -124,8 +125,8 @@ public class ChromeWebAccessTest {
 
 
     @Test
-    public void ref_リファレンステスト_グーグル検索() throws Exception {
-        System.out.println("it_グーグル検索");
+    public void ref_リファレンステスト_グーグル検索000() throws Exception {
+        System.out.println("it_グーグル検索000");
         
         driver.get("https://google.com");
         Assertions.assertEquals("Google", driver.getTitle());

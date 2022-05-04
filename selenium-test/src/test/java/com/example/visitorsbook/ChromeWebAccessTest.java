@@ -46,7 +46,7 @@ public class ChromeWebAccessTest {
         driver.get("http://webapl-17.test.k8s4.labo.local/");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Thread.sleep(Duration.ofSeconds(2).toMillis());
-        assertThat(driver.getTitle()).contains("ビジターブック");
+        assertThat(driver.getTitle()).isEqualTo("ビジターブック");
 
         // 画面を２秒表示
         Thread.sleep(Duration.ofSeconds(2).toMillis());

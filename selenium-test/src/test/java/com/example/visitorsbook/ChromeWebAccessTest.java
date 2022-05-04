@@ -21,12 +21,15 @@ import static org.assertj.core.api.Assumptions.assumeThat;
 
 public class ChromeWebAccessTest {
 
+	String url = "https://ingress.k8s4.labo.local";
+	//String url = "http://webapl-17.test.k8s4.labo.local";
     WebDriver driver;
 
     WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker()
         .enableRecording();
         //.browserVersion("beta");
-
+   
+    
     @BeforeEach
     public void setupTest() {
         //assumeThat(isDockerAvailable()).isTrue();
@@ -43,7 +46,7 @@ public class ChromeWebAccessTest {
     public void it_トップからリスト画面遷移001() throws Exception {
         System.out.println("it_トップからリスト画面遷移001");
 
-        driver.get("http://webapl-17.test.k8s4.labo.local/");
+        driver.get(url + "/");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Thread.sleep(Duration.ofSeconds(2).toMillis());
         assertThat(driver.getTitle()).isEqualTo("ビジターブック");
@@ -65,7 +68,7 @@ public class ChromeWebAccessTest {
     public void it_トップからインプット画面遷移002() throws Exception {
         System.out.println("it_トップからインプット画面遷移002");
 
-        driver.get("http://webapl-17.test.k8s4.labo.local/");
+        driver.get(url + "/");
         assertThat(driver.getTitle()).contains("ビジターブック");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
@@ -86,7 +89,7 @@ public class ChromeWebAccessTest {
     public void it_ユーザー登録画面003() throws Exception {
         System.out.println("it_ユーザー登録画面003");
 
-        driver.get("http://webapl-17.test.k8s4.labo.local/input.html");
+        driver.get(url + "/input.html");
         assertThat(driver.getTitle()).contains("ビジター登録");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	
@@ -114,7 +117,7 @@ public class ChromeWebAccessTest {
     public void it_ユーザーのリスト表示004() throws Exception {
         System.out.println("it_ユーザーのリスト表示004");
 
-        driver.get("http://webapl-17.test.k8s4.labo.local/list.html");
+        driver.get(url + "/list.html");
         assertThat(driver.getTitle()).contains("ビジターリスト");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 	

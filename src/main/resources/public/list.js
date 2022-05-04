@@ -4,6 +4,6 @@ angular.module('list', [])
     $http.get('/users').
         then(function(response) {
             $scope.users = response.data;
-            console.log("response = " + response);
+            console.log("response = " + response.data);
         });
 });

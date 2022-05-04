@@ -37,7 +37,7 @@ public class ChromeWebAccessTest {
         //assumeThat(isDockerAvailable()).isTrue();
     	ChromeOptions options = new ChromeOptions();
     	options.setAcceptInsecureCerts(true);
-    	wdm.setup(options);
+    	wdm.capabilities(options);
         driver = wdm.create();
     }
 
